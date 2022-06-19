@@ -19,15 +19,23 @@ const nameScore = function(filename){
     //console.log(nameArray) // looks like names have single quote but they dont.
     //it's just JS way of showing string
 
+    let ans=0;
 
-    nameArray.forEach(firstName =>{
-        console.log(firstName)
+    // to find the index for each name, add i
+    nameArray.forEach((firstName, i) => {
+        let nameSum = 0
+        const namePos = i + 1
+        //console.log(firstName)
         firstName.split('').forEach(letter =>{
             const letterPosition = Alpha.indexOf(letter) + 1;
-            console.log('\t', letter, letterPosition)
+            //console.log('\t', letter, letterPosition) print value of each letter
+            nameSum += letterPosition
         })
+        //console.log (firstName, namePos, nameSum, nameVal)
+        const nameVal = nameSum + namePos
+        ans += nameVal
     })
-    return 5
+    return ans
 }
 
 const score = nameScore('names.txt')
